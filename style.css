@@ -1,4 +1,4 @@
-/* Base Styles */
+/* Reset and Base Styles */
 * {
   box-sizing: border-box;
 }
@@ -12,7 +12,7 @@ body {
   color: #333;
 }
 
-/* Navigation Bar */
+/* Navigation Bar (top) */
 nav {
   background-color: #333;
   padding: 1rem;
@@ -34,44 +34,55 @@ nav a:hover {
   background-color: #777;
 }
 
-/* Header Section */
-header {
-  background: #555;
+/* Layout Container */
+.container {
+  display: flex;
+  min-height: calc(100vh - 70px); /* Subtracting estimated nav+footer height */
+}
+
+/* Sidebar (Left Panel) */
+.sidebar {
+  width: 400px;
+  background-color: #555;
   color: #fff;
   padding: 2rem;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  gap: 1.5rem;
+}
+
+/* Sidebar Header */
+.sidebar header {
+  text-align: center;
 }
 
 .profile-pic {
-  width: 100px;
-  height: 100px;
+  width: 250px;
+  height: 250px;
   border-radius: 50%;
   object-fit: cover;
   object-position: top;
   border: 2px solid white;
-}
-
-.header-text {
-  display: flex;
-  flex-direction: column;
+  margin-bottom: 1rem;
 }
 
 .header-text h1 {
   margin: 0;
-  font-size: 1.8rem;
+  font-size: 1  rem;
 }
 
 .header-text p {
-  margin: 0.4rem 0 0;
-  font-size: 1rem;
+  margin: 0.5rem 0 0;
+  font-size: 1 rem;
   color: #eee;
 }
 
-/* Main Content */
-main {
+/* Main Content (Right Panel) */
+.main-content {
+  flex: 1;
   padding: 2rem;
+  background-color: #f4f4f4;
+  color: #333;
 }
 
 /* Section Headings */
@@ -81,12 +92,10 @@ h2 {
   margin-top: 2rem;
 }
 
-
 /* Footer */
 footer {
   text-align: center;
   padding: 1rem;
   background: #ddd;
-  margin-top: 2rem;
   font-size: 0.9rem;
 }
