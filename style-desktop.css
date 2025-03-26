@@ -15,9 +15,8 @@ html, body {
   height: 100%;
 }
 
-/* Navigation Bar (Fixed Top) */
+/* Navigation Bar (Top) */
 nav {
-  position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -54,7 +53,7 @@ nav a:hover {
   background-color: #555;
   color: #fff;
   padding: 2rem;
-  padding-top: 200px;
+  padding-top: 150px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -108,59 +107,4 @@ footer {
   padding: 1rem;
   background: #ddd;
   font-size: 0.9rem;
-}
-
-/* Responsive Layout for Mobile */
-@media (max-width: 768px) {
-  .container {
-    flex-direction: column;
-  }
-
-  /* Sidebar (stacked on top in mobile) */
-  .sidebar {
-    width: 100%;
-    background-color: #555;
-    padding: 2rem 1rem;
-    padding-top: 90px; /* 70px for navbar + 20px breathing room */
-    align-items: center;
-  }
-
-  .sidebar header {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-  }
-
-  .profile-pic {
-    width: 80px;
-    height: 80px;
-    margin-bottom: 0.5rem;
-  }
-
-  .header-text h1 {
-    font-size: 1.2rem;
-  }
-
-  .header-text p {
-    font-size: 0.9rem;
-  }
-
-  /* Main content (scrollable below nav) */
-  .main-content {
-    padding: 1rem;
-    margin-top: 0px;
-  }
-
-  /* Navigation bar adjustments */
-  nav {
-    padding: 0.8rem;
-  }
-
-  nav a {
-    display: inline-block;
-    margin: 0.2rem 0.5rem;
-    padding: 0.4rem 0.8rem;
-    font-size: 0.95rem;
-  }
 }
