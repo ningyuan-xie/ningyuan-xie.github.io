@@ -1,0 +1,10 @@
+# MacOS
+*.DS_Store
+
+# Windows
+*.db
+*.ini
+$RECYCLE.BIN/
+
+# vscode settings
+.vscode/settings.json
