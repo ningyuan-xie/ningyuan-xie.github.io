@@ -101,6 +101,23 @@ h2 {
   margin-top: 2rem;
 }
 
+/* Skill Section */
+.skill-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-bottom: 8px;
+}
+
+.skill-label {
+  font-weight: bold;
+  min-width: 180px;
+  margin-right: 10px;
+}
+
+.skill-content {
+  flex: 1;
+}
+
 /* Footer */
 footer {
   text-align: center;

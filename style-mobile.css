@@ -51,5 +51,14 @@
       padding: 0.4rem 0.8rem;
       font-size: 0.95rem;
     }
+
+    /* Skill section adjustments */
+    .skill-row {
+      flex-direction: column;
+    }
+  
+    .skill-label {
+      margin-bottom: 4px;
+    }
   }
   
