@@ -6,5 +6,10 @@
 *.ini
 $RECYCLE.BIN/
 
-# vscode settings
-.vscode/settings.json
+# Software files
+.ipynb_checkpoints/
+*.Rhistory
+
+# VS Code
+.vscode/
+*.env
