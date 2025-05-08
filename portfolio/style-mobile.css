@@ -108,6 +108,10 @@
         color: var(--secondary-color);
     }
 
+    .skill-content {
+        margin-left: 1rem;
+    }
+
     /* Ensure no content is cut off */
     .skill-row, .profile-pic, footer {
         max-width: 100%;
