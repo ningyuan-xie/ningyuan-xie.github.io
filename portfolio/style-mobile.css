@@ -1,64 +1,115 @@
-/* Responsive Layout for Mobile */
+/* Modern Mobile Styles */
+:root {
+    --primary-color: #2c3e50;
+    --secondary-color: #3498db;
+    --accent-color: #e74c3c;
+    --light-color: #ecf0f1;
+    --text-color: #333;
+    --font-main: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    --font-heading: 'Montserrat', sans-serif;
+}
+
 @media (max-width: 768px) {
-    .container {
-      flex-direction: column;
-    }
-  
-    /* Sidebar (stacked on top in mobile) */
-    .sidebar {
-      width: 100%;
-      background-color: #555;
-      padding: 2rem 1rem;
-      padding-top: 90px; /* 70px for navbar + 20px breathing room */
-      align-items: center;
-    }
-  
-    .sidebar header {
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-    }
-  
-    .profile-pic {
-      width: 80px;
-      height: 80px;
-      margin-bottom: 0.5rem;
-    }
-  
-    .header-text h1 {
-      font-size: 1.2rem;
-    }
-  
-    .header-text p {
-      font-size: 0.9rem;
-    }
-  
-    /* Main content (scrollable below nav) */
-    .main-content {
-      padding: 1rem;
-      margin-top: 0px;
-    }
-  
-    /* Navigation bar adjustments */
-    nav {
-      padding: 0.8rem;
-    }
-  
-    nav a {
-      display: inline-block;
-      margin: 0.2rem 0.5rem;
-      padding: 0.4rem 0.8rem;
-      font-size: 0.95rem;
+    body {
+        font-family: var(--font-main);
+        line-height: 1.5;
+        margin: 0;
+        padding: 0;
+        background-color: #f9f9f9;
+        overflow-x: hidden;
+        width: 100%;
+        overscroll-behavior-x: contain;
+        min-height: 100vh; /* Ensure full viewport height */
     }
 
-    /* Skill section adjustments */
+    /* Top bar (reverted to full width) */
+    nav {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        padding: 0.5rem;
+        background-color: var(--primary-color);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 0.3rem;
+    }
+
+    /* Footer (optional: keep full width or adjust as needed) */
+    footer {
+        box-sizing: border-box;
+        width: 100%;
+        margin: 0;
+        overflow-x: hidden;
+        padding: 1rem;
+        background-color: var(--primary-color);
+        color: var(--light-color);
+        text-align: center;
+    }
+
+    /* Widgets (narrower and centered) */
+    .sidebar, .main-content {
+        box-sizing: border-box;
+        width: 95%;
+        margin: 0 auto;
+        padding: 0.5rem;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        background-color: white;
+    }
+
+    .container {
+        flex-direction: column;
+        padding: 0;
+        gap: 0.5rem;
+        max-width: 100%;
+        overflow-x: hidden;
+        overflow-y: visible;
+    }
+
+    .profile-pic {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 1rem;
+        border: 3px solid var(--secondary-color);
+    }
+
+    h1 {
+        font-size: 1.5rem;
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+    }
+
+    h2 {
+        font-size: 1.3rem;
+        font-family: var(--font-heading);
+        color: var(--primary-color);
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+    }
+
+    /* Skills Section */
     .skill-row {
-      flex-direction: column;
+        flex-direction: column;
+        gap: 0.5rem;
     }
-  
+
     .skill-label {
-      margin-bottom: 4px;
+        width: 100%;
+        margin-bottom: 0.25rem;
+        font-weight: bold;
+        color: var(--secondary-color);
     }
-  }
+
+    /* Ensure no content is cut off */
+    .skill-row, .profile-pic, footer {
+        max-width: 100%;
+    }
+}
   
