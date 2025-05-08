@@ -98,6 +98,7 @@
     .skill-row {
         flex-direction: column;
         gap: 0.5rem;
+        word-break: break-word;
     }
 
     .skill-label {
