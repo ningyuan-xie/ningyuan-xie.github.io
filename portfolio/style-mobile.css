@@ -45,7 +45,7 @@
         width: 100%;
         margin: 0;
         overflow-x: hidden;
-        padding: 1rem;
+        padding: 0.5rem;
         background-color: var(--primary-color);
         color: var(--light-color);
         text-align: center;
