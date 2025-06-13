@@ -62,14 +62,14 @@ function App() {
           <div className="model-image">
             <div className="model-layers">
               <div className="layer input-layer">
-                <div className="node">Input</div>
+                <div className="node">x</div>
               </div>
               <div className="layer hidden-layer">
-                <div className="node">Hidden 1</div>
-                <div className="node">Hidden 2</div>
+                <div className="node">h₁</div>
+                <div className="node">h₂</div>
               </div>
               <div className="layer output-layer">
-                <div className="node">Output</div>
+                <div className="node">y</div>
               </div>
             </div>
           </div>
