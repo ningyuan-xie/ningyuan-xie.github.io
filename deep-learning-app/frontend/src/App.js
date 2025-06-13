@@ -1,6 +1,81 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 
+function NeuralNetworkVisualization() {
+  // Define the structure: 1 input, 2 hidden, 1 output
+  const layers = [
+    [{ label: 'x', className: 'input-layer' }],
+    [
+      { label: 'h₁', className: 'hidden-layer' },
+      { label: 'h₂', className: 'hidden-layer' },
+    ],
+    [{ label: 'y', className: 'output-layer' }],
+  ];
+
+  // Node positions for SVG lines
+  const nodePositions = [
+    [{ x: 80, y: 150 }], // input
+    [
+      { x: 300, y: 90 },
+      { x: 300, y: 210 },
+    ], // hidden
+    [{ x: 520, y: 150 }], // output
+  ];
+
+  // Generate SVG lines for full connections
+  const lines = [];
+  for (let l = 0; l < nodePositions.length - 1; l++) {
+    for (let i = 0; i < nodePositions[l].length; i++) {
+      for (let j = 0; j < nodePositions[l + 1].length; j++) {
+        const from = nodePositions[l][i];
+        const to = nodePositions[l + 1][j];
+        lines.push(
+          <line
+            key={`line-${l}-${i}-${j}`}
+            x1={from.x + 30}
+            y1={from.y + 30}
+            x2={to.x + 30}
+            y2={to.y + 30}
+            stroke="#61dafb"
+            strokeWidth="2"
+            opacity="0.5"
+          />
+        );
+      }
+    }
+  }
+
+  return (
+    <div className="model-visualization">
+      <h2>Neural Network Architecture</h2>
+      <div style={{ position: 'relative', width: 600, height: 300, margin: '0 auto' }}>
+        <svg width="600" height="300" style={{ position: 'absolute', left: 0, top: 0, zIndex: 0 }}>
+          {lines}
+        </svg>
+        {layers.map((layer, lIdx) =>
+          layer.map((node, nIdx) => {
+            const pos = nodePositions[lIdx][nIdx];
+            return (
+              <div
+                key={`node-${lIdx}-${nIdx}`}
+                className={`node ${node.className}`}
+                style={{
+                  position: 'absolute',
+                  left: pos.x,
+                  top: pos.y,
+                  zIndex: 1,
+                }}
+              >
+                {node.label}
+              </div>
+            );
+          })
+        )}
+      </div>
+    </div>
+  );
+}
+
 function App() {
   const [input, setInput] = useState('');
   const [result, setResult] = useState(null);
@@ -57,23 +132,7 @@ function App() {
           </span>
         </div>
         
-        <div className="model-visualization">
-          <h2>Neural Network Architecture</h2>
-          <div className="model-image">
-            <div className="model-layers">
-              <div className="layer input-layer">
-                <div className="node">x</div>
-              </div>
-              <div className="layer hidden-layer">
-                <div className="node">h₁</div>
-                <div className="node">h₂</div>
-              </div>
-              <div className="layer output-layer">
-                <div className="node">y</div>
-              </div>
-            </div>
-          </div>
-        </div>
+        <NeuralNetworkVisualization />
 
         <form onSubmit={handleSubmit} className="prediction-form">
           <div className="input-group">

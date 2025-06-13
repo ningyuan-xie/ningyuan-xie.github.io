@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/deep-learning-app/static/css/main.c484aa40.css",
-    "main.js": "/deep-learning-app/static/js/main.ac63cdb9.js",
+    "main.js": "/deep-learning-app/static/js/main.b2fa2489.js",
     "static/js/453.8ab44547.chunk.js": "/deep-learning-app/static/js/453.8ab44547.chunk.js",
     "index.html": "/deep-learning-app/index.html",
     "main.c484aa40.css.map": "/deep-learning-app/static/css/main.c484aa40.css.map",
-    "main.ac63cdb9.js.map": "/deep-learning-app/static/js/main.ac63cdb9.js.map",
+    "main.b2fa2489.js.map": "/deep-learning-app/static/js/main.b2fa2489.js.map",
     "453.8ab44547.chunk.js.map": "/deep-learning-app/static/js/453.8ab44547.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.c484aa40.css",
-    "static/js/main.ac63cdb9.js"
+    "static/js/main.b2fa2489.js"
   ]
 }
