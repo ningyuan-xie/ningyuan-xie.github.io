@@ -1,5 +1,4 @@
-import React from 'react';
-import { useSelector, useDispatch } from 'react-redux';
+import React, { useState } from 'react';
 import {
   Box,
   TextField,
@@ -8,19 +7,53 @@ import {
   Chip,
   Button,
 } from '@mui/material';
-import { RootState } from '../store/store';
-import { setText, clearAnalysis } from '../store/analysisSlice';
+
+interface TextAnalysisResult {
+  wordCount: number;
+  characterCount: number;
+  sentenceCount: number;
+  averageWordLength: number;
+  sentiment: 'positive' | 'negative' | 'neutral';
+}
 
 const TextAnalysis: React.FC = () => {
-  const dispatch = useDispatch();
-  const { text, analysis } = useSelector((state: RootState) => state.analysis);
+  const [text, setText] = useState('');
+  const [analysis, setAnalysis] = useState<TextAnalysisResult | null>(null);
+
+  const analyzeText = (text: string): TextAnalysisResult => {
+    const words = text.trim().split(/\s+/);
+    const sentences = text.split(/[.!?]+/).filter(Boolean);
+    const characters = text.replace(/\s/g, '').length;
+    
+    // Simple sentiment analysis based on positive/negative word counts
+    const positiveWords = ['good', 'great', 'excellent', 'happy', 'love', 'wonderful'];
+    const negativeWords = ['bad', 'terrible', 'awful', 'sad', 'hate', 'horrible'];
+    
+    const positiveCount = words.filter(word => positiveWords.includes(word.toLowerCase())).length;
+    const negativeCount = words.filter(word => negativeWords.includes(word.toLowerCase())).length;
+    
+    let sentiment: 'positive' | 'negative' | 'neutral' = 'neutral';
+    if (positiveCount > negativeCount) sentiment = 'positive';
+    else if (negativeCount > positiveCount) sentiment = 'negative';
+
+    return {
+      wordCount: words.length,
+      characterCount: characters,
+      sentenceCount: sentences.length,
+      averageWordLength: characters / words.length || 0,
+      sentiment,
+    };
+  };
 
   const handleTextChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    dispatch(setText(event.target.value));
+    const newText = event.target.value;
+    setText(newText);
+    setAnalysis(newText ? analyzeText(newText) : null);
   };
 
   const handleClear = () => {
-    dispatch(clearAnalysis());
+    setText('');
+    setAnalysis(null);
   };
 
   return (
